@@ -1,0 +1,266 @@
+[root@lvm vagrant]# yum install http://download.zfsonlinux.org/epel/zfs-release.el7_4.noarch.rpm -y
+Loaded plugins: fastestmirror
+zfs-release.el7_4.noarch.rpm                                                                                                                                                         | 5.2 kB  00:00:00     
+Examining /var/tmp/yum-root-he7kjs/zfs-release.el7_4.noarch.rpm: zfs-release-1-5.el7_4.noarch
+Marking /var/tmp/yum-root-he7kjs/zfs-release.el7_4.noarch.rpm to be installed
+Resolving Dependencies
+--> Running transaction check
+---> Package zfs-release.noarch 0:1-5.el7_4 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+============================================================================================================================================================================================================
+ Package                                        Arch                                      Version                                        Repository                                                    Size
+============================================================================================================================================================================================================
+Installing:
+ zfs-release                                    noarch                                    1-5.el7_4                                      /zfs-release.el7_4.noarch                                    2.9 k
+
+Transaction Summary
+============================================================================================================================================================================================================
+Install  1 Package
+
+Total size: 2.9 k
+Installed size: 2.9 k
+Downloading packages:
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : zfs-release-1-5.el7_4.noarch                                                                                                                                                             1/1 
+  Verifying  : zfs-release-1-5.el7_4.noarch                                                                                                                                                             1/1 
+
+Installed:
+  zfs-release.noarch 0:1-5.el7_4                                                                                                                                                                            
+
+Complete!
+
+[root@lvm vagrant]# vi /etc/yum.repos.d/zfs.repo 
+
+[root@lvm vagrant]# yum install zfs -y
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: mirror.reconn.ru
+ * extras: mirror.reconn.ru
+ * updates: mirror.reconn.ru
+zfs-kmod                                                                                                                                                                             | 2.9 kB  00:00:00     
+zfs-kmod/x86_64/primary_db                                                                                                                                                           | 302 kB  00:00:02     
+Resolving Dependencies
+--> Running transaction check
+---> Package zfs.x86_64 0:0.7.12-1.el7_4 will be installed
+--> Processing Dependency: zfs-kmod = 0.7.12 for package: zfs-0.7.12-1.el7_4.x86_64
+--> Processing Dependency: spl = 0.7.12 for package: zfs-0.7.12-1.el7_4.x86_64
+--> Processing Dependency: libzpool2 = 0.7.12 for package: zfs-0.7.12-1.el7_4.x86_64
+--> Processing Dependency: libzfs2 = 0.7.12 for package: zfs-0.7.12-1.el7_4.x86_64
+--> Processing Dependency: libuutil1 = 0.7.12 for package: zfs-0.7.12-1.el7_4.x86_64
+--> Processing Dependency: libnvpair1 = 0.7.12 for package: zfs-0.7.12-1.el7_4.x86_64
+--> Processing Dependency: sysstat for package: zfs-0.7.12-1.el7_4.x86_64
+--> Processing Dependency: libzpool.so.2()(64bit) for package: zfs-0.7.12-1.el7_4.x86_64
+--> Processing Dependency: libzfs_core.so.1()(64bit) for package: zfs-0.7.12-1.el7_4.x86_64
+--> Processing Dependency: libzfs.so.2()(64bit) for package: zfs-0.7.12-1.el7_4.x86_64
+--> Processing Dependency: libuutil.so.1()(64bit) for package: zfs-0.7.12-1.el7_4.x86_64
+--> Processing Dependency: libnvpair.so.1()(64bit) for package: zfs-0.7.12-1.el7_4.x86_64
+--> Running transaction check
+---> Package kmod-zfs.x86_64 0:0.7.12-1.el7_4 will be installed
+--> Processing Dependency: spl-kmod for package: kmod-zfs-0.7.12-1.el7_4.x86_64
+---> Package libnvpair1.x86_64 0:0.7.12-1.el7_4 will be installed
+---> Package libuutil1.x86_64 0:0.7.12-1.el7_4 will be installed
+---> Package libzfs2.x86_64 0:0.7.12-1.el7_4 will be installed
+---> Package libzpool2.x86_64 0:0.7.12-1.el7_4 will be installed
+---> Package spl.x86_64 0:0.7.12-1.el7_4 will be installed
+---> Package sysstat.x86_64 0:10.1.5-18.el7 will be installed
+--> Processing Dependency: libsensors.so.4()(64bit) for package: sysstat-10.1.5-18.el7.x86_64
+--> Running transaction check
+---> Package kmod-spl.x86_64 0:0.7.12-1.el7_4 will be installed
+---> Package lm_sensors-libs.x86_64 0:3.4.0-8.20160601gitf9185e5.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+============================================================================================================================================================================================================
+ Package                                          Arch                                    Version                                                           Repository                                 Size
+============================================================================================================================================================================================================
+Installing:
+ zfs                                              x86_64                                  0.7.12-1.el7_4                                                    zfs-kmod                                  414 k
+Installing for dependencies:
+ kmod-spl                                         x86_64                                  0.7.12-1.el7_4                                                    zfs-kmod                                  108 k
+ kmod-zfs                                         x86_64                                  0.7.12-1.el7_4                                                    zfs-kmod                                  883 k
+ libnvpair1                                       x86_64                                  0.7.12-1.el7_4                                                    zfs-kmod                                   31 k
+ libuutil1                                        x86_64                                  0.7.12-1.el7_4                                                    zfs-kmod                                   36 k
+ libzfs2                                          x86_64                                  0.7.12-1.el7_4                                                    zfs-kmod                                  131 k
+ libzpool2                                        x86_64                                  0.7.12-1.el7_4                                                    zfs-kmod                                  594 k
+ lm_sensors-libs                                  x86_64                                  3.4.0-8.20160601gitf9185e5.el7                                    base                                       42 k
+ spl                                              x86_64                                  0.7.12-1.el7_4                                                    zfs-kmod                                   29 k
+ sysstat                                          x86_64                                  10.1.5-18.el7                                                     base                                      315 k
+
+Transaction Summary
+============================================================================================================================================================================================================
+Install  1 Package (+9 Dependent packages)
+
+Total download size: 2.5 M
+Installed size: 9.4 M
+Downloading packages:
+(1/10): kmod-spl-0.7.12-1.el7_4.x86_64.rpm                                                                                                                                           | 108 kB  00:00:02     
+(2/10): libnvpair1-0.7.12-1.el7_4.x86_64.rpm                                                                                                                                         |  31 kB  00:00:00     
+(3/10): libuutil1-0.7.12-1.el7_4.x86_64.rpm                                                                                                                                          |  36 kB  00:00:00     
+(4/10): kmod-zfs-0.7.12-1.el7_4.x86_64.rpm                                                                                                                                           | 883 kB  00:00:03     
+(5/10): libzfs2-0.7.12-1.el7_4.x86_64.rpm                                                                                                                                            | 131 kB  00:00:00     
+(6/10): spl-0.7.12-1.el7_4.x86_64.rpm                                                                                                                                                |  29 kB  00:00:00     
+(7/10): lm_sensors-libs-3.4.0-8.20160601gitf9185e5.el7.x86_64.rpm                                                                                                                    |  42 kB  00:00:00     
+(8/10): sysstat-10.1.5-18.el7.x86_64.rpm                                                                                                                                             | 315 kB  00:00:00     
+(9/10): libzpool2-0.7.12-1.el7_4.x86_64.rpm                                                                                                                                          | 594 kB  00:00:01     
+(10/10): zfs-0.7.12-1.el7_4.x86_64.rpm                                                                                                                                               | 414 kB  00:00:01     
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                                       481 kB/s | 2.5 MB  00:00:05     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libuutil1-0.7.12-1.el7_4.x86_64                                                                                                                                                         1/10 
+  Installing : libnvpair1-0.7.12-1.el7_4.x86_64                                                                                                                                                        2/10 
+  Installing : libzpool2-0.7.12-1.el7_4.x86_64                                                                                                                                                         3/10 
+  Installing : spl-0.7.12-1.el7_4.x86_64                                                                                                                                                               4/10 
+  Installing : kmod-spl-0.7.12-1.el7_4.x86_64                                                                                                                                                          5/10 
+  Installing : libzfs2-0.7.12-1.el7_4.x86_64                                                                                                                                                           6/10 
+  Installing : lm_sensors-libs-3.4.0-8.20160601gitf9185e5.el7.x86_64                                                                                                                                   7/10 
+  Installing : sysstat-10.1.5-18.el7.x86_64                                                                                                                                                            8/10 
+  Installing : kmod-zfs-0.7.12-1.el7_4.x86_64                                                                                                                                                          9/10 
+  Installing : zfs-0.7.12-1.el7_4.x86_64                                                                                                                                                              10/10 
+  Verifying  : libuutil1-0.7.12-1.el7_4.x86_64                                                                                                                                                         1/10 
+  Verifying  : sysstat-10.1.5-18.el7.x86_64                                                                                                                                                            2/10 
+  Verifying  : libnvpair1-0.7.12-1.el7_4.x86_64                                                                                                                                                        3/10 
+  Verifying  : libzfs2-0.7.12-1.el7_4.x86_64                                                                                                                                                           4/10 
+  Verifying  : kmod-spl-0.7.12-1.el7_4.x86_64                                                                                                                                                          5/10 
+  Verifying  : spl-0.7.12-1.el7_4.x86_64                                                                                                                                                               6/10 
+  Verifying  : kmod-zfs-0.7.12-1.el7_4.x86_64                                                                                                                                                          7/10 
+  Verifying  : lm_sensors-libs-3.4.0-8.20160601gitf9185e5.el7.x86_64                                                                                                                                   8/10 
+  Verifying  : zfs-0.7.12-1.el7_4.x86_64                                                                                                                                                               9/10 
+  Verifying  : libzpool2-0.7.12-1.el7_4.x86_64                                                                                                                                                        10/10 
+
+Installed:
+  zfs.x86_64 0:0.7.12-1.el7_4                                                                                                                                                                               
+
+Dependency Installed:
+  kmod-spl.x86_64 0:0.7.12-1.el7_4    kmod-zfs.x86_64 0:0.7.12-1.el7_4                          libnvpair1.x86_64 0:0.7.12-1.el7_4   libuutil1.x86_64 0:0.7.12-1.el7_4   libzfs2.x86_64 0:0.7.12-1.el7_4  
+  libzpool2.x86_64 0:0.7.12-1.el7_4   lm_sensors-libs.x86_64 0:3.4.0-8.20160601gitf9185e5.el7   spl.x86_64 0:0.7.12-1.el7_4          sysstat.x86_64 0:10.1.5-18.el7     
+
+Complete!
+
+
+###############################REBOOT########################################
+
+
+[root@lvm vagrant]# lsmod | grep zfs
+
+[root@lvm vagrant]# modprobe zfs
+
+[root@lvm vagrant]# lsblk
+NAME                    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                       8:0    0   40G  0 disk 
+├─sda1                    8:1    0    1M  0 part 
+├─sda2                    8:2    0    1G  0 part /boot
+└─sda3                    8:3    0   39G  0 part 
+  ├─VolGroup00-LogVol00 253:0    0 37.5G  0 lvm  /
+  └─VolGroup00-LogVol01 253:1    0  1.5G  0 lvm  [SWAP]
+sdb                       8:16   0   10G  0 disk 
+sdc                       8:32   0    2G  0 disk 
+sdd                       8:48   0    1G  0 disk 
+sde                       8:64   0    1G  0 disk 
+[root@lvm vagrant]# zpool create pool0 /dev/sdb cache /dev/sdc
+
+[root@lvm vagrant]# zfs list
+NAME    USED  AVAIL  REFER  MOUNTPOINT
+pool0   129K  9.63G    24K  /pool0
+
+[root@lvm vagrant]# df -h
+Filesystem                       Size  Used Avail Use% Mounted on
+/dev/mapper/VolGroup00-LogVol00   38G  755M   37G   2% /
+devtmpfs                         109M     0  109M   0% /dev
+tmpfs                            118M     0  118M   0% /dev/shm
+tmpfs                            118M  4.5M  114M   4% /run
+tmpfs                            118M     0  118M   0% /sys/fs/cgroup
+/dev/sda2                       1014M   63M  952M   7% /boot
+tmpfs                             24M     0   24M   0% /run/user/1000
+pool0                            9.7G  128K  9.7G   1% /pool0
+
+[root@lvm vagrant]# lsblk
+NAME                    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                       8:0    0   40G  0 disk 
+├─sda1                    8:1    0    1M  0 part 
+├─sda2                    8:2    0    1G  0 part /boot
+└─sda3                    8:3    0   39G  0 part 
+  ├─VolGroup00-LogVol00 253:0    0 37.5G  0 lvm  /
+  └─VolGroup00-LogVol01 253:1    0  1.5G  0 lvm  [SWAP]
+sdb                       8:16   0   10G  0 disk 
+├─sdb1                    8:17   0   10G  0 part 
+└─sdb9                    8:25   0    8M  0 part 
+sdc                       8:32   0    2G  0 disk 
+├─sdc1                    8:33   0    2G  0 part 
+└─sdc9                    8:41   0    8M  0 part 
+sdd                       8:48   0    1G  0 disk 
+sde                       8:64   0    1G  0 disk 
+
+[root@lvm vagrant]# zfs get mountpoint pool0
+NAME   PROPERTY    VALUE       SOURCE
+pool0  mountpoint  /pool0      default
+
+[root@lvm vagrant]# zfs set mountpoint=/opt/ pool0
+
+[root@lvm vagrant]# zfs get mountpoint pool0
+NAME   PROPERTY    VALUE       SOURCE
+pool0  mountpoint  /opt/       local
+
+[root@lvm vagrant]# df -h
+Filesystem                       Size  Used Avail Use% Mounted on
+/dev/mapper/VolGroup00-LogVol00   38G  755M   37G   2% /
+devtmpfs                         109M     0  109M   0% /dev
+tmpfs                            118M     0  118M   0% /dev/shm
+tmpfs                            118M  4.5M  114M   4% /run
+tmpfs                            118M     0  118M   0% /sys/fs/cgroup
+/dev/sda2                       1014M   63M  952M   7% /boot
+tmpfs                             24M     0   24M   0% /run/user/1000
+pool0                            9.7G  128K  9.7G   1% /opt
+
+[root@lvm vagrant]# zpool status
+pool: pool0
+state: ONLINE
+scan: none requested
+config:
+
+        NAME        STATE     READ WRITE CKSUM
+        pool0       ONLINE       0     0     0
+          sdb       ONLINE       0     0     0
+        cache
+          sdc       ONLINE       0     0     0
+
+errors: No known data errors
+
+[root@lvm vagrant]# touch /opt/file{1..10}
+
+[root@lvm vagrant]# zfs snapshot pool0@snap0
+
+[root@lvm vagrant]# zfs list -t snapshot
+NAME          USED  AVAIL  REFER  MOUNTPOINT
+pool0@snap0    19K      -    31K  -
+
+[root@lvm vagrant]# rm /opt/file{5..10}
+
+[root@lvm vagrant]# zfs list -t snapshot
+NAME          USED  AVAIL  REFER  MOUNTPOINT
+pool0@snap0    19K      -    31K  -
+
+[root@lvm vagrant]# zfs rollback pool0@snap0
+
+[root@lvm vagrant]# ll /opt/
+total 5
+-rw-r--r--. 1 root root 0 Nov 15 11:32 file1
+-rw-r--r--. 1 root root 0 Nov 15 11:32 file10
+-rw-r--r--. 1 root root 0 Nov 15 11:32 file2
+-rw-r--r--. 1 root root 0 Nov 15 11:32 file3
+-rw-r--r--. 1 root root 0 Nov 15 11:32 file4
+-rw-r--r--. 1 root root 0 Nov 15 11:32 file5
+-rw-r--r--. 1 root root 0 Nov 15 11:32 file6
+-rw-r--r--. 1 root root 0 Nov 15 11:32 file7
+-rw-r--r--. 1 root root 0 Nov 15 11:32 file8
+-rw-r--r--. 1 root root 0 Nov 15 11:32 file9
+
